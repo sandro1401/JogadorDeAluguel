@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jogadors",
+  "info": {
+    "singularName": "jogador",
+    "pluralName": "jogadors",
+    "displayName": "Jogador",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "text",
+      "required": true,
+      "minLength": 3
+    },
+    "Idade": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "Posicao": {
+      "type": "string",
+      "required": true
+    },
+    "Disponibilidade": {
+      "type": "date",
+      "required": false
+    },
+    "Historico": {
+      "type": "text"
+    },
+    "candidaturas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::candidatura.candidatura",
+      "mappedBy": "jogador_id"
+    },
+    "modalidades": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::modalidade.modalidade"
+    },
+    "eventos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evento.evento",
+      "mappedBy": "Posicao"
+    }
+  }
+}

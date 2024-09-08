@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modalidades",
+  "info": {
+    "singularName": "modalidade",
+    "pluralName": "modalidades",
+    "displayName": "Modalidade",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string",
+      "required": true
+    },
+    "eventos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evento.evento"
+    },
+    "jogadors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jogador.jogador"
+    },
+    "posicaos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::posicao.posicao",
+      "mappedBy": "modalidade_id"
+    }
+  }
+}

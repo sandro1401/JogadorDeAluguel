@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "eventos",
+  "info": {
+    "singularName": "evento",
+    "pluralName": "eventos",
+    "displayName": "Evento",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NomeEvento": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Local": {
+      "type": "string",
+      "required": true
+    },
+    "Data": {
+      "type": "date",
+      "required": true,
+      "unique": true
+    },
+    "Hora": {
+      "type": "time",
+      "required": true,
+      "unique": true
+    },
+    "Posicao": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::jogador.jogador",
+      "inversedBy": "eventos"
+    },
+    "usuario": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::usuario.usuario",
+      "inversedBy": "eventos"
+    },
+    "modalidade": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::modalidade.modalidade"
+    },
+    "jogadors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::jogador.jogador"
+    },
+    "candidaturas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::candidatura.candidatura",
+      "mappedBy": "evento"
+    }
+  }
+}
