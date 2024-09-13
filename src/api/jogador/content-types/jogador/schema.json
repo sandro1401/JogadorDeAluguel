@@ -33,22 +33,16 @@
     "Historico": {
       "type": "text"
     },
-    "candidaturas": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::candidatura.candidatura",
-      "mappedBy": "jogador_id"
-    },
     "modalidades": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::modalidade.modalidade"
     },
-    "eventos": {
+    "candidaturas": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::evento.evento",
-      "mappedBy": "Posicao"
+      "target": "api::candidatura.candidatura",
+      "mappedBy": "jogadorId"
     }
   }
 }

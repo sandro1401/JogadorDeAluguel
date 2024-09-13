@@ -31,13 +31,7 @@
       "required": true,
       "unique": true
     },
-    "Posicao": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::jogador.jogador",
-      "inversedBy": "eventos"
-    },
-    "usuario": {
+    "organizadorId": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::usuario.usuario",
@@ -58,6 +52,10 @@
       "relation": "oneToMany",
       "target": "api::candidatura.candidatura",
       "mappedBy": "evento"
+    },
+    "Posicao": {
+      "type": "string",
+      "required": true
     }
   }
 }

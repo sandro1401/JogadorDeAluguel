@@ -800,7 +800,7 @@ export interface ApiCandidaturaCandidatura extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    jogador_id: Attribute.Relation<
+    jogadorId: Attribute.Relation<
       'api::candidatura.candidatura',
       'manyToOne',
       'api::jogador.jogador'
@@ -845,12 +845,7 @@ export interface ApiEventoEvento extends Schema.CollectionType {
     Local: Attribute.String & Attribute.Required;
     Data: Attribute.Date & Attribute.Required & Attribute.Unique;
     Hora: Attribute.Time & Attribute.Required & Attribute.Unique;
-    Posicao: Attribute.Relation<
-      'api::evento.evento',
-      'manyToOne',
-      'api::jogador.jogador'
-    >;
-    usuario: Attribute.Relation<
+    organizadorId: Attribute.Relation<
       'api::evento.evento',
       'manyToOne',
       'api::usuario.usuario'
@@ -870,6 +865,7 @@ export interface ApiEventoEvento extends Schema.CollectionType {
       'oneToMany',
       'api::candidatura.candidatura'
     >;
+    Posicao: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -909,20 +905,15 @@ export interface ApiJogadorJogador extends Schema.CollectionType {
     Posicao: Attribute.String & Attribute.Required;
     Disponibilidade: Attribute.Date;
     Historico: Attribute.Text;
-    candidaturas: Attribute.Relation<
-      'api::jogador.jogador',
-      'oneToMany',
-      'api::candidatura.candidatura'
-    >;
     modalidades: Attribute.Relation<
       'api::jogador.jogador',
       'oneToMany',
       'api::modalidade.modalidade'
     >;
-    eventos: Attribute.Relation<
+    candidaturas: Attribute.Relation<
       'api::jogador.jogador',
       'oneToMany',
-      'api::evento.evento'
+      'api::candidatura.candidatura'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

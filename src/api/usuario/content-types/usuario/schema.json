@@ -34,7 +34,7 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::evento.evento",
-      "mappedBy": "usuario"
+      "mappedBy": "organizadorId"
     }
   }
 }
